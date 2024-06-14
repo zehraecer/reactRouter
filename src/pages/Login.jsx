@@ -1,6 +1,7 @@
 import { useContext, useState } from "react"
 import { userContext } from "../App"
 import { LoginSummary } from "./loginSummary"
+import { TextField, Box, Button } from "@mui/material"
 
 export const Login = () => {
     const { formRef, form, setForm, loginRef, summaryRef } = useContext(userContext)
@@ -9,14 +10,12 @@ export const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-
         const formData = new FormData(formRef.current)
         const formObj = Object.fromEntries(formData.entries());
-        setForm([...form, formObj])
+        setForm([formObj])
         loginRef.current.style.display = "none"
         summaryRef.current.style.display = "block"
         // setIsSubmited(true)
-
 
     }
 
@@ -24,16 +23,34 @@ export const Login = () => {
         <>
             <div className="formSection" ref={loginRef}>
 
-                <form style={{ display: "flex", flexDirection: "column" }} ref={formRef} onSubmit={handleSubmit} >
+                <form style={{ display: "flex", flexDirection: "column", gap: "20px" }} ref={formRef} onSubmit={handleSubmit} >
 
-                    <input type="text" placeholder="name surname" name="name" />
-                    <input type="email" placeholder="email" name="email" id="" />
-                    <input type="number" placeholder="number" name="number" />
-                    <input type="password" placeholder="password" name="password" id="" />
+                    <div className="formElements">
+                        <div className="leftForm">
 
-                    <button type="submit" >Gönder</button>
+                            <TextField id="outlined-basic" name="name" label="name surname" variant="outlined" />
+                            <TextField id="outlined-basic" name="email" label="email" variant="outlined" />
+
+                        </div>
+
+                        <div className="rightForm">
+
+                            <TextField id="outlined-basic" name="number" label="number" variant="outlined" />
+                            <TextField id="outlined-basic" name="password" label="password" variant="outlined" />
+
+                        </div>
+
+                    </div>
+
+
+                    <div className="buttonForm">
+
+                        <Button type="submit" variant="contained" color="primary">Gönder</Button>
+                    </div>
+
 
                 </form>
+
             </div>
 
             {/* <div>

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 
 
 export const LoginSummary = () => {
-    const { form, summaryRef } = useContext(userContext)
+    const { form, summaryRef, setForm } = useContext(userContext)
 
 
     return (
@@ -13,15 +13,27 @@ export const LoginSummary = () => {
 
             <div ref={summaryRef} className="loginSummary">
 
+
                 {form.map((user, index) => (
-                    <div key={index}>
+                    <div className="summaryLogin" key={index}>
 
-                        <h5>Ad-Soyad: {user.name}</h5>
-                        <h5>E-posta :{user.email} </h5>
-                        <h5>Number :{user.number} </h5>
-                        <h5>Password :{user.password} </h5>
+                        <div>
 
-                        <Link to="/users">Onayla</Link>
+                            <h5> {user.name}</h5>
+                            <h5>{user.email} </h5>
+                        </div>
+
+                        <div>
+                            <h5>{user.number} </h5>
+                            <h5>{user.password} </h5>
+
+                        </div>
+
+                        <div>
+                            <Link to="/users">Onayla</Link>
+
+                        </div>
+
                     </div>
 
                 ))}

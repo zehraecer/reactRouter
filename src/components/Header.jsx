@@ -5,11 +5,22 @@ export const Header = () => {
 
         <>
 
-            <div style={{ display: "flex", gap: "15px" }}>
+            <div className="header">
 
-                <Link to="/">Anasayfa</Link>
-                <Link to="/login">Log In</Link>
-                <Link to="/users">Users</Link>
+
+                <div className="headerLeft">
+                    <h1>Zehra Ecer</h1>
+
+                </div>
+
+                <div className="headerRight">
+
+
+                    <Link to="/">Anasayfa</Link>
+                    <Link to="/login">Log In</Link>
+                    <Link to="/users">Users</Link>
+                </div>
+
 
             </div>
         </>
