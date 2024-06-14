@@ -10,7 +10,6 @@ export const LoginSummary = () => {
 
     return (
         <>
-            <h4>summary</h4>
 
             <div ref={summaryRef} className="loginSummary">
 

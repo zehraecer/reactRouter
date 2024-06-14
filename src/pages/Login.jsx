@@ -14,6 +14,7 @@ export const Login = () => {
         const formObj = Object.fromEntries(formData.entries());
         setForm([...form, formObj])
         loginRef.current.style.display = "none"
+        summaryRef.current.style.display = "block"
         // setIsSubmited(true)
 
 
